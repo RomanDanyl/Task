@@ -14,13 +14,18 @@
         <h3>{{ task.content }}</h3>
         <p>Created: {{ task.datetime }}</p>
         <p>Deadline: {{ task.deadline }}</p>
+      <p>Tags: {% if task.tags.all %}
+          {% with task.tags.all as tags %}
+            {{ tags|join:", " }}
+          {% endwith %}
+        {% else %}
+          -
+        {% endif %}</p>
         {% if task.done %}
           <p style="color: green;">Done</p>
         {% else %}  
           <p style="color: red;">Not done</p>
         {% endif %}
-        
-        
         <a class="btn btn-secondary" href="{% url 'apptask:task-update' task.id %}">Update</a>
         <a class="btn btn-danger" href="{% url 'apptask:task-delete' task.id %}">Delete</a>
         {% if task.done %}

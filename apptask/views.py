@@ -35,6 +35,25 @@ class TagListView(generic.ListView):
     model = Tag
 
 
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = ['name']
+    template_name = "apptask/tag_form.html"
+    success_url = reverse_lazy('apptask:tag-list')
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = ['name']
+    template_name = "apptask/tag_form.html"
+    success_url = reverse_lazy('apptask:tag-list')
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy('apptask:tag-list')
+
+
 def task_toggle_status(request, pk):
     task = get_object_or_404(Task, pk=pk)
     task.done = not task.done

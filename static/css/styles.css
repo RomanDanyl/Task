@@ -1,0 +1,23 @@
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-form {
+  margin: 0;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
